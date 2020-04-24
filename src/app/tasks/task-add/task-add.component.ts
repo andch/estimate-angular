@@ -4,24 +4,25 @@ import {
   ViewChild,
   ElementRef,
   EventEmitter,
-  Output
-} from "@angular/core";
-import { Task } from "../task.model";
+  Output,
+} from '@angular/core';
+import { Task } from '../task.model';
+import { TaskService } from '../task.service';
 
 @Component({
-  selector: "app-task-add",
-  templateUrl: "./task-add.component.html",
-  styleUrls: ["./task-add.component.css"]
+  selector: 'app-task-add',
+  templateUrl: './task-add.component.html',
+  styleUrls: ['./task-add.component.css'],
 })
 export class TaskAddComponent implements OnInit {
-  @Output() newTaskAdded = new EventEmitter<Task>();
-  @ViewChild("inputName", { static: false }) nameInputRef: ElementRef;
-  @ViewChild("inputDisc", { static: false }) discInputRef: ElementRef;
-  @ViewChild("inputTimeMin", { static: false }) timeMinInputRef: ElementRef;
-  @ViewChild("inputTimeMax", { static: false }) timeMaxInputRef: ElementRef;
-  @ViewChild("inputType", { static: false }) typeInputRef: ElementRef;
+  @ViewChild('inputName', { static: false }) nameInputRef: ElementRef;
+  @ViewChild('inputDisc', { static: false }) discInputRef: ElementRef;
+  @ViewChild('inputTimeMin', { static: false }) timeMinInputRef: ElementRef;
+  @ViewChild('inputTimeMax', { static: false }) timeMaxInputRef: ElementRef;
+  @ViewChild('inputType', { static: false }) typeInputRef: ElementRef;
 
-  ngOnInit(): void {}
+  constructor(private taskService: TaskService) {}
+  ngOnInit() {}
 
   onAddTask() {
     const name = this.nameInputRef.nativeElement.value;
@@ -30,7 +31,6 @@ export class TaskAddComponent implements OnInit {
     const maxTime = this.timeMaxInputRef.nativeElement.value;
     const type = this.typeInputRef.nativeElement.value;
     const newTask = new Task(name, desc, minTime, maxTime, type);
-    console.log(newTask);
-    this.newTaskAdded.emit(newTask);
+    this.taskService.addTask(newTask);
   }
 }
