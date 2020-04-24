@@ -1,0 +1,59 @@
+<div class="mb-4 inline-block mr-2 mb-2">
+  <label class="inline mr-2 text-sm font-bold" for="name">Name</label>
+  <input
+    class="bg-gray-200 py-3 px-4 shadow rounded"
+    type="text"
+    id="name"
+    #inputName
+  />
+</div>
+<div class="mb-4 inline-block mr-2 mb-2">
+  <label class="inline mr-2 text-sm font-bold" for="disc">Description</label>
+  <input
+    class="bg-gray-200 py-3 px-4 shadow rounded"
+    type="text"
+    id="disc"
+    #inputDisc
+  />
+</div>
+<div class="mb-4 inline-block mr-2 mb-2">
+  <label class="inline mr-2 text-sm font-bold" for="time-min">Time min</label>
+  <input
+    class="bg-gray-200 py-3 px-4 shadow rounded"
+    type="number"
+    id="time-min"
+    #inputTimeMin
+  />
+</div>
+<div class="mb-4 inline-block mr-2 mb-2">
+  <label class="inline mr-2 text-sm font-bold" for="time-max">Time max</label>
+  <input
+    class="bg-gray-200 py-3 px-4 shadow rounded"
+    type="number"
+    id="time-max"
+    #inputTimeMax
+  />
+</div>
+<div class="mb-4 inline-block mr-2 mb-2">
+  <label class="inline mr-2 text-sm font-bold" for="choose-type"
+    >Choose type</label
+  >
+  <select
+    class="bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8"
+    name="choose-type"
+    id="choose-type"
+    #inputType
+  >
+    <option>FE</option>
+    <option>BE</option>
+  </select>
+</div>
+<div class="mb-4">
+  <button
+    (click)="onAddTask()"
+    type="submit"
+    class="bg-purple-500 py-2 px-4 rounded"
+  >
+    Add new task
+  </button>
+</div>

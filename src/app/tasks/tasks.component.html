@@ -1,0 +1,6 @@
+<app-tasks-list
+  (taskWasSelected)="selectdTask = $event"
+  [tasks]="tasks"
+></app-tasks-list>
+<app-task-detail *ngIf="selectdTask" [task]="selectdTask"></app-task-detail>
+<app-task-add (newTaskAdded)="pushNewTask($event)"></app-task-add>
